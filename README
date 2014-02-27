@@ -1,0 +1,31 @@
+1. AppRemember.sh 功能
+该脚本实现的功能其实很简单, 就是在应用程序的命令之外作了一层包装. 包装后的命令能记录你用该命令所打开的文件, 还有个类似收藏夹的功能吧, 方便你打开最经常使用的文档. 
+
+2. 怎样安装
+$git clone https://github.com/alex8866/AppRemember.git\
+$cd AppRemember
+$cp AppRemember.sh $HOME/bin
+$cp AppRemember.conf $HOME/bin
+$cd $HOME/bin
+
+对AppRemember.conf进行配置, 具体该怎么配置, 请阅读 3
+$./AppRemember.sh
+
+3. 怎样使用?
+假若你打开PDF文件的命令行工具为:okular, 你对该工具有如下配置:
+<AppName>
+    Name=okular
+    MapName=ok
+    LogPath=/home/aaron/bin/need-save/okular.txt
+    ShowOpen=/home/aaron/Read/[C程序设计(第四版)].谭浩强.扫描版.pdf;/home/aaron/Documents/Class/c-c++/C和指针.pdf
+</AppName>
+
+那么执行AppRemeber.sh后会生成新的命令:ok
+执行
+$ok filename
+则会打开名为filename的PDF文档, ok脚本会将该文档的绝对路径加入到文件:/home/aaron/bin/need-save/okular.txt中.
+执行
+$ok -l 
+则会列出你所有打开过的文件, 选择你需要再次打开文件的编号->回车, 则会再次打开该文件.
+
+ShowOpen 所列出的文件, 会放在你执行ok -l列出列表的最前面, 这些文件一般是你最经常打开的文件, 这样设计是让你能更方便的打开最经常使用的文件.
