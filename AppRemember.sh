@@ -102,14 +102,14 @@ function AppL()
     printf "RowNumber: "
     
     read answer
-    jug="$(printf "$answer" |tr -d [0-9])"
-    if [ "$jug" == "" ];then
-        filename=$(sed -n "$answer""p" "AppLogPath" | cut -f2)
-        filename="$(deal_file "$filename")"
-        [ "$filename" != "1" ] && AppOriginName "$filename" &
-    else
-        exit
-    fi
+    #jug="$(printf "$answer" |tr -d [0-9])"
+    #if [ "$jug" == "" ];then
+    filename=$(sed -n "$answer""p" "AppLogPath" | cut -f2)
+    filename="$(deal_file "$filename")"
+    [ "$filename" != "1" ] && AppOriginName "$filename" &>/dev/null &
+    #else
+    #    exit
+    #fi
 }
 #[ "$1" == "-l" ] && AppL
 
@@ -124,7 +124,7 @@ do
     esac
 done
 filename="$(deal_file "$1")"
-AppOriginName "$filename" &
+AppOriginName "$filename" &>/dev/null &
 
 EOF
 }
