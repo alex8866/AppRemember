@@ -2,7 +2,7 @@
 该脚本实现的功能其实很简单, 就是在应用程序的命令之外作了一层包装. 包装后的命令能记录你用该命令所打开的文件, 还有个类似收藏夹的功能吧, 方便你打开最经常使用的文档. 
 
 2. 怎样安装
-$git clone https://github.com/alex8866/AppRemember.git\
+$git clone https://github.com/alex8866/AppRemember.git
 $cd AppRemember
 $cp AppRemember.sh $HOME/bin
 $cp AppRemember.conf $HOME/bin
