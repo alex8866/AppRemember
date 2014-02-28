@@ -106,7 +106,7 @@ function AppL()
     #if [ "$jug" == "" ];then
     filename=$(sed -n "$answer""p" "AppLogPath" | cut -f2)
     filename="$(deal_file "$filename")"
-    [ "$filename" != "1" ] && AppOriginName "$filename" &>/dev/null &
+    [ "$filename" != "1" ] && nohup AppOriginName "$filename" &>/dev/null &
     #else
     #    exit
     #fi
@@ -124,7 +124,7 @@ do
     esac
 done
 filename="$(deal_file "$1")"
-AppOriginName "$filename" &>/dev/null &
+nohup AppOriginName "$filename" &>/dev/null &
 
 EOF
 }
